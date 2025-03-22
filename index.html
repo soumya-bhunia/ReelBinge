@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap' rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap' rel="stylesheet">
+    <link href="style.css" rel="stylesheet">  
+
+    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+    <link rel="icon" href="./assets/logo-HD.png"  type="image/x-icon" />
+    <link rel="shortcut icon" href="./assets/KIIT-logo-HD.png"   type="image/x-icon" />
+ 
+    <title>Cine_Verse</title>
+    
+    
+</head>
+
+<body>
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="success-message" id="successMessage">Login successful!</div>
+            <form class="form" autocomplete="off">
+                <div class="control">  
+                    <h1>Sign In</h1>
+                </div>
+                <div class="control block-cube block-input">
+                    <input name="username" type="text" placeholder="Username">
+                    <div class="bg-top">
+                        <div class="bg-inner"></div>
+                    </div>
+                    <div class="bg-right">
+                        <div class="bg-inner"></div>
+                    </div>
+                    <div class="bg">
+                        <div class="bg-inner"></div>
+                    </div>
+                </div>
+                <div class="control block-cube block-input">
+                    <input name="password" type="password" placeholder="Password">
+                    <div class="bg-top">
+                        <div class="bg-inner"></div>
+                    </div>
+                    <div class="bg-right">
+                        <div class="bg-inner"></div>
+                    </div>
+                    <div class="bg">
+                        <div class="bg-inner"></div>
+                    </div>
+                </div>
+                <button type="button" class="btn block-cube block-cube-hover">
+                    <div class="bg-top">
+                        <div class="bg-inner"></div>
+                    </div>
+                    <div class="bg-right">
+                        <div class="bg-inner"></div>
+                    </div>
+                    <div class="bg">
+                        <div class="bg-inner"></div>
+                    </div>
+                    <div class="text">Log In</div>
+                </button>
+            </form>
+            
+        </div>
+    </div>
+
+    <!-- Main Website Content -->
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bxl-c-plus-plus icon'></i>
+            <div class="logo_name">Cine_Verse</div>
+            <i class='bx bx-menu' id="btn" ></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <i class='bx bx-search' ></i>
+                <input id="searchInput" type="text" placeholder="Search..." onkeydown="if (event.keyCode === 13) searchMovies()">
+                <span class="tooltip">Search</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-home'></i>
+                    <span class="links_name">Home</span>
+                </a>
+                <span class="tooltip">Home</span>
+            </li>
+            <li>
+                <a href="https://w2g.tv/en/" target="_blank">
+                    <i class='bx bx-party' ></i>
+                    <span class="links_name">Watchparty</span>
+                </a>
+                <span class="tooltip">Party</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-user' ></i>
+                    <span class="links_name">User</span>
+                </a>
+                <span class="tooltip">User</span>
+            </li>
+            <li>
+                <a href="liked_movies/liked_movies.html">
+                    <i class='bx bx-heart' ></i>
+                    <span class="links_name">Liked</span>
+                </a>
+                <span class="tooltip">Liked</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cog' ></i>
+                    <span class="links_name">Setting</span>
+                </a>
+                <span class="tooltip">Setting</span>
+            </li>
+            <li class="profile">
+                <div class="profile-details">
+                    <div class="name_job">
+                        <div class="name">AD-Lab Project GRP -12 </div>
+                        <div class="job">Web designers</div>
+                    </div>
+                </div>
+                <i class='bx bx-log-out' id="log_out" ></i>
+            </li>
+        </ul>
+    </div>
+
+    <main>
+        <div id="heroSection">
+            <ul class='slider'> </ul>
+            <nav class='nav'>
+                <ion-icon class='btn prev' name="arrow-back-outline"></ion-icon>
+                <ion-icon class='btn next' name="arrow-forward-outline"></ion-icon>
+            </nav>
+        </div>
+        
+        <div id="hnav_Content">
+            <nav>
+            <a href="content_explore/content.html?type=movies"> Trending Movies</a>
+            <a href="content_explore/content.html?type=series"> Buzzin Series</a>
+            <a href="content_explore/content.html?type=movies&rank=topRanked"> Top-Ranked Movies</a>
+            <a href="content_explore/content.html?type=series&rank=topRanked"> Top-Rated Series</a>
+            <a href="content_explore/content.html?type=movies&rank=topRanked&region=IN"> Bollywood</a>
+            <a href="content_explore/content.html?type=movies&rank=topRanked&region=KR"> Korean </a>
+           </nav>
+        
+        <div id="Movies">
+            <p style="color: #fff;">
+                Movies (In Theatres Worldwide):
+            </p>
+        </div>
+  
+          <div  class="imgbtn">
+        <div id="movies" class="scroll-container" ></div>
+        <button id="fwbtn"  class="btf"><i class='bx bxs-chevron-left' style='color:#ffffff'  ></i></button>
+        <button id="bwbtn"  class="btw"><i class='bx bxs-chevron-right' style='color:#ffffff'  ></i></button>
+      </div>
+        
+  
+      <div class="vertical-div"></div>
+  
+        <div id="TopratedMovies">
+          <p style="color: #fff;">
+              Top Rated Movies:
+          </p>
+      </div>
+  
+      <div  class="imgbtn">
+      <div id="topratedmovies" class="scroll-container"></div> 
+      <button id="fw1btn" class="btf"><i class='bx bxs-chevron-left' style='color:#ffffff'></i></button>
+      <button id="bw1btn" class="btw"><i class='bx bxs-chevron-right' style='color:#ffffff'></i></button>
+    </div>
+  
+    <div class="vertical-div"></div>
+  
+  
+        <div id="MoviesInd">
+          <p style="color: #fff;">
+              Movies (In Indian Theatres)
+          </p>
+      </div>
+  
+      <div  class="imgbtn">
+         <div id="moviesind" class="scroll-container"></div>  
+        <button id="fw2btn" class="btf"><i class='bx bxs-chevron-left' style='color:#ffffff'  ></i></button>
+        <button id="bw2btn" class="btw"><i class='bx bxs-chevron-right' style='color:#ffffff'  ></i></button>
+      </div>
+  
+  
+      <div class="vertical-div"></div>
+  
+  
+      <div id="Bollywood">
+        <p style="color: #fff;">
+            Bollywood
+        </p>   
+    </div>
+  
+    <!-- Existing Bollywood section -->
+    <div class="imgbtn">
+      <div id="bollywood" class="scroll-container"></div>
+      <button id="fw2btn" class="btf"><i class='bx bxs-chevron-left' style='color:#ffffff'></i></button>
+      <button id="bw2btn" class="btw"><i class='bx bxs-chevron-right' style='color:#ffffff'></i></button>
+    </div>
+  
+    <!-- New specific movies section -->
+    <div class="imgbtn">
+      <div id="specificMovies" class="scroll-container"></div>
+      <button id="fwbtn" class="btf"><i class='bx bxs-chevron-left' style='color:#ffffff'></i></button>
+      <button id="bwbtn" class="btw"><i class='bx bxs-chevron-right' style='color:#ffffff'></i></button>
+    </div>
+  
+    <div class="vertical-div"></div>
+  
+  
+        <div id="Series">
+            <p style="color: #fff;">
+                Series: (Now-Airing)
+            </p>
+        </div>
+  
+        <div  class="imgbtn">
+        <div id="series" class="scroll-container"></div>
+          <button id="fw2btn" class="btf"><i class='bx bxs-chevron-left' style='color:#ffffff'  ></i></button>
+          <button id="bw2btn" class="btw"><i class='bx bxs-chevron-right' style='color:#ffffff'  ></i></button>
+      </div>
+  
+  
+      <div class="vertical-div"></div>
+  
+  
+        <div id="SeriesTr">
+          <p style="color: #fff;">
+              Series: (Top-Rated)
+          </p>
+      </div>
+  
+      <div  class="imgbtn">
+      <div id="seriestr" class="scroll-container"></div>
+      <button id="fw2btn" class="btf"><i class='bx bxs-chevron-left' style='color:#ffffff'  ></i></button>
+      <button id="bw2btn" class="btw"><i class='bx bxs-chevron-right' style='color:#ffffff'  ></i></button>
+    </div>
+  
+  
+    <div class="vertical-div"></div>
+  
+  
+        <div id="KoreanSeries">
+          <p style="color: #fff;">
+              Korean Series:
+          </p>
+      </div>
+  
+      <div  class="imgbtn">
+      <div id="koreanseries" class="scroll-container"></div>
+      <button id="fw2btn" class="btf"><i class='bx bxs-chevron-left' style='color:#ffffff'  ></i></button>
+      <button id="bw2btn" class="btw"><i class='bx bxs-chevron-right' style='color:#ffffff'  ></i></button>
+    </div>
+  
+  
+      
+    <div class="row copyright" style="position: relative; display: flex; justify-content: space-evenly;  color: #fff;">
+      <p style="font-size: 15px; flex-basis: 1;font-weight: 400;text-align: center;">Copyright &copy; 2025 Surya, Sourav, Smruti, Soumya, Tinu | All Rights Reserved | Made with 🧡 in AD Lab</p>
+  </div>
+  
+  <div class="row copyright" style="position: relative; display: flex; justify-content: center; padding-bottom: 2vw; color: #fff;">
+    <p style="font-size: 15px;text-align: center;margin-left: 10vw;margin-right: 10vw;font-weight: 100;">Cine_Verse does not host, upload, or store any media files on its own servers. All video content available on KIIT_flix is provided by third-party sources, which operate independently and are beyond our control. We do not endorse, monitor, or assume responsibility for the legality, accuracy, or availability of any content accessed through these external providers.</p>
+  </div>
+ 
+</main>
+
+<script src="script.js" type="text/javascript"></script>
+
+<style>
+  /* Add this blur class */
+  .blur-active {
+    filter: blur(8px);
+    pointer-events: none;
+  }
+  </style>
+  
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+      var modal = document.getElementById('loginModal');
+      var mainContent = document.querySelector('main');
+      modal.style.display = 'flex';
+      
+      // Add blur to main content when modal is shown
+      mainContent.classList.add('blur-active');
+      
+      // Close modal when X is clicked
+      var closeBtn = document.querySelector('.close');
+      closeBtn.addEventListener('click', function() {
+          modal.style.display = 'none';
+          mainContent.classList.remove('blur-active');
+      });
+      
+      // Handle login button click
+      var loginButton = document.querySelector('.btn.block-cube.block-cube-hover');
+      loginButton.addEventListener('click', function() {
+          var username = document.querySelector('input[name="username"]').value;
+          var password = document.querySelector('input[name="password"]').value;
+          
+          // Simple validation (replace with actual authentication logic)
+          if (username && password) {
+              var successMessage = document.getElementById('successMessage');
+              successMessage.style.display = 'block';
+              
+              // Simulate a delay for login processing
+              setTimeout(function() {
+                  // Hide success message and modal
+                  successMessage.style.display = 'none';
+                  modal.style.display = 'none';
+                  mainContent.classList.remove('blur-active');
+                  
+                  // Redirect to main content
+                  window.location.href = '#main';
+              }, 1500);
+          } else {
+              alert('Please enter both username and password');
+          }
+      });
+  });
+  </script>
+
+</body>
+</html>
