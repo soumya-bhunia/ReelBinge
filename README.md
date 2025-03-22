@@ -1,0 +1,1 @@
+ReelBinge is a movie discovery web app built using HTML, CSS, and JavaScript. It integrates the TMDB API to fetch and display movie details dynamically. The project features a clean UI for browsing movies, searching for titles, and viewing essential details like ratings and descriptions.
