@@ -444,6 +444,7 @@ div.scroll-container img {
   }
   .sidebar .logo-details #btn{
   position: absolute;
+  display: none;
   top: 50%;
   right: 0;
   transform: translateY(-50%);
